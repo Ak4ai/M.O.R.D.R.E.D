@@ -1,50 +1,13 @@
 {
-  "name": "meu-aplicativo-electron",
-  "version": "1.0.0",
-  "description": "Descrição do meu aplicativo Electron",
-  "main": "main.js",
+  "name": "my-project",
+  "private": true,
+  "version": "0.0.0",
   "scripts": {
-    "start": "electron .",
-    "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-  "author": "Seu Nome",
-  "license": "MIT",
   "dependencies": {
-    "fs": "^0.0.1-security"
-  },
-  "devDependencies": {
-    "electron": "^31.1.0",
-    "electron-builder": "^24.13.3"
-  },
-  "build": {
-    "appId": "com.example.app",
-    "productName": "Meu Aplicativo Electron",
-    "directories": {
-      "output": "dist"
-    },
-    "files": [
-      "main.js",
-      "index.html",
-      "style.css"
-    ],
-    "extraFiles": [
-      {
-        "from": "assets",
-        "to": "assets",
-        "filter": [
-          "**/*"
-        ]
-      }
-    ],
-    "win": {
-      "target": "portable"
-    },
-    "mac": {
-      "target": "dmg"
-    },
-    "linux": {
-      "target": "AppImage"
-    }
+    "vite": "^5.0.12"
   }
 }
