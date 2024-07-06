@@ -1,4 +1,7 @@
-# Sistema de Personagem RPG
+# Módulo de Organização e Recuperação de Dados para RPGs Épicos e Diversificados
+<center>
+![Screenshot_4](https://github.com/Ak4ai/M.O.R.D.R.E.D/assets/129908980/65024c56-c66a-4559-8fb8-d76170bc4591)
+</center>
 
 Este é um sistema simples para gerenciar as informações de um personagem em um RPG, utilizando arquivos JSON para configurar os atributos e habilidades do personagem.
 
