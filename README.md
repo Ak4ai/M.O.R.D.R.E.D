@@ -1,88 +1,101 @@
-# Chemical Engine - Motorzinho de Alquimia
+# Sistema de Personagem RPG
 
-## Visão Geral
-O Chemical Engine é um motor simples para criar um universo de alquimia, onde os jogadores podem combinar elementos para descobrir novos. Este modelo fornece uma estrutura inicial fácil de entender e expandir para criar jogos educacionais ou de entretenimento baseados em princípios de alquimia.
+Este é um sistema simples para gerenciar as informações de um personagem em um RPG, utilizando arquivos JSON para configurar os atributos e habilidades do personagem.
 
-## Estrutura do Universo
-O universo é composto por elementos básicos que podem ser combinados para criar novos elementos. Cada elemento possui um nome, uma exibição, uma lista de combinações possíveis e uma URL de imagem representativa.
+## Funcionalidades
 
-### Exemplo de Elemento:
-- Nome: Fogo
-- Exibição: "Fogo"
-- Combinações: {"água": "vapor", "fogo": "sol"}
-- Item Inicial: Sim
-- ![image](https://github.com/Ak4ai/Chemical_Engine/assets/129908980/96d38d2e-2b6a-47cc-9daa-a7c77880417a)
+### Classe Personagem
 
-## Estado do Jogo
-O estado do jogo mantém o rastreamento dos elementos descobertos e indescobertos, além de registrar tentativas e misturas feitas pelos jogadores.
+A classe `Personagem` é utilizada para instanciar um objeto de personagem com atributos como vida, energia, sanidade, atributos físicos e mentais, além de diversas perícias.
 
-### Funções Principais:
-- `criarEstadoDoJogo(universo)`: Inicializa o estado do jogo com base no universo fornecido.
-- `salvarJogo(estadoJogo)`: Salva o estado do jogo no armazenamento local.
-- `carregarJogo()`: Carrega o estado do jogo do armazenamento local ou cria um novo se não existir.
-- `descobrirNovo(novoEl)`: Move um elemento indescoberto para a lista de elementos descobertos.
-- `fazerMistura()`: Realiza a mistura de dois elementos e verifica se resulta em um novo elemento descoberto.
+### Métodos da Classe Personagem
 
-## Interface Gráfica
-O Chemical Engine inclui funções para renderizar a interface gráfica, exibindo elementos descobertos, misturas e mensagens informativas.
+- `getVida()`, `getEnergia()`, `getSanidade()`: Métodos para retornar os valores atuais de vida, energia e sanidade do personagem.
+- `getPericias()`, `getAtributos()`: Métodos para retornar um objeto com todas as perícias e atributos do personagem.
+- Métodos para modificar atributos: `reduzirEnergia()`, `adicionarEnergia()`, `reduzirVida()`, `adicionarVida()`, `reduzirSanidade()`, `adicionarSanidade()`.
+- `obterStatus()`: Retorna uma string formatada com o status geral do personagem.
 
-### Funções de Renderização:
-- `obterImg(elID)`: Obtém a tag HTML da imagem para um determinado elemento.
-- `renderizarMistura()`: Atualiza a exibição da mistura atual.
-- `renderizarDescobertos()`: Renderiza a lista de elementos descobertos na interface gráfica.
+### Como Configurar
 
-## Interação do Usuário
-O usuário pode misturar elementos arrastando e soltando, além de clicar em botões para realizar misturas e descobrir novos elementos.
+1. **Arquivo `personagem.json`:**
 
-### Drag and Drop:
-- Elementos podem ser arrastados para misturar uns com os outros.
-- A mistura é realizada quando um elemento é solto sobre outro.
+   Este arquivo deve conter as informações iniciais do personagem, como vida, energia, sanidade, atributos e perícias. Exemplo:
 
-### Cliques e Botões:
-- Clicar em um elemento revela informações sobre ele.
-- Clicar no botão "Misturar" inicia a combinação dos elementos selecionados.
+   ```json
+   {
+       "vida": 100,
+       "vidaMax": 100,
+       "energia": 50,
+       "energiaMax": 50,
+       "sanidade": 80,
+       "sanidadeMax": 80,
+       "vigor": 12,
+       "intelecto": 15,
+       "presenca": 10,
+       "forca": 14,
+       "agilidade": 16,
+       "periciaAcrobacia": 10,
+       "periciaAdestramento": 8,
+       "periciaArtes": 12,
+       "periciaSorte": 5
+   }
+   ```
 
-## Como Jogar
-1. Arraste e solte elementos para misturar.
-2. Clique em elementos descobertos para obter mais informações.
-3. Misture elementos para descobrir novas combinações.
-4. Salve seu progresso usando a função de salvar jogo.
+2. **Arquivo `habilidades.json`:**
 
-![image](https://github.com/Ak4ai/Chemical_Engine/assets/129908980/8c96a38d-e66e-4b4b-b56c-21ff19781c8b)
+   Este arquivo deve conter as habilidades disponíveis para o personagem, cada uma com seu nome, descrição, custo de energia, cooldown, dano e status. Exemplo:
 
+   ```json
+   {
+       "habilidades": [
+           {
+               "id": 1,
+               "nome": "Ataque Poderoso",
+               "descricao": "Ataque poderoso que causa grande dano.",
+               "custo": 10,
+               "cooldown": 2,
+               "dano": "2d8",
+               "status": "Ativo"
+           },
+           {
+               "id": 2,
+               "nome": "Curar Ferimentos",
+               "descricao": "Habilidade para curar ferimentos leves.",
+               "custo": 5,
+               "cooldown": 1,
+               "dano": "1d6",
+               "status": "Disponível"
+           }
+       ]
+   }
+   ```
 
-## Personalização
-O Chemical Engine pode ser expandido adicionando mais elementos, imagens e combinações ao universo. Personalize conforme necessário para atender aos objetivos do seu jogo.
+### Como Usar
 
-## Licença
-Este projeto é fornecido sob a [Licença MIT](LICENSE).
+1. Clone o repositório.
+2. Configure os arquivos `personagem.json` e `habilidades.json` conforme descrito acima.
+3. Abra `index.html` em seu navegador para iniciar o sistema.
 
-Divirta-se explorando o mundo da alquimia com o Chemical Engine!
+### Estrutura do Projeto
 
-# HTML, CSS, JS (Auto Refresh)
-
-This template is a starter for building a website with HTML, CSS and JS, powered by [Vite](https://vitejs.dev/). HTML provides the basic structure, CSS controls formatting, and JavaScript controls the behavior of different elements.
-
-Hit run to see this project in action. It will auto-refresh as you edit the HTML, CSS and JS files.
-
-## Disable Auto Refresh
-
-If you find the auto refresh getting in your way, go to [vite.config.js](./vite.config.js) and update it set `hmr` to false to disable hot module reloading (HMR). The full config will look like this:
-
-```js
-export default defineConfig({
-  plugins: [],
-  server: {
-    host: '0.0.0.0',
-    hmr: false, // Change this line to `false` disable auto-refreshing.
-  }
-})
+```
+├── assets/
+│   ├── personagem.json
+│   └── habilidades.json
+├── index.html
+├── script.js
+├── style.css
+├── README.md
+└── ...
 ```
 
-## Packages
+### Contribuições
 
-Because this template uses Vite to build your code, you can add install and use npm packages. Simple open the Packager tool to search and manage your packages.
+Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
-## Learn More
+### Licença
 
-Check out [the vite docs](https://vitejs.dev) to learn more about configuring a frontend application.
+Este projeto está licenciado sob a [MIT License](LICENSE).
+```
+
+Este README.md fornece uma visão geral clara do seu projeto, suas funcionalidades principais, como configurá-lo e estrutura de diretórios básica. Certifique-se de ajustar conforme necessário para refletir completamente o seu projeto.
