@@ -42,6 +42,79 @@ body::before {
   margin: 20px;
 }
 
+/* Estilos para caixas de entrada de texto */
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.222);
+  background-color: #3e242480;
+  color: #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box; /* Garante que o padding não aumente a largura total */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra ao focar */
+}
+
+/* Estilo quando o input está em foco */
+input:focus {
+  border: 1px solid rgb(255, 255, 255);
+  box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
+  outline: none; /* Remove a borda de foco padrão */
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Sombra ao focar */
+}
+
+/* Estilo para o dropdown do select */
+select::-ms-expand {
+  display: none; /* Esconde o ícone de dropdown no Internet Explorer */
+  background-color: #3e2424;
+}
+
+select {
+  /* Estilos gerais do select */
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: #ccc;
+  text-align-last: center;
+  border-radius: 4px;
+  font-size: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.222);
+  background-color: #3e242480;
+  appearance: none; /* Remove o estilo padrão do sistema operacional */
+  cursor: pointer; /* Altera o cursor ao passar o mouse */
+  box-sizing: border-box; /* Garante que o padding não aumente a largura total */
+}
+
+/* Estilo para a lista suspensa das opções */
+select option {
+  border: 1px solid rgba(255, 255, 255, 0.222);
+  background-color: #3e242480;
+  color: #ccc;
+}
+
+
+/* Estilo quando o mouse passa por cima de uma opção */
+select option:hover {
+  background-color: #f0f0f0; /* Cor de fundo ao passar o mouse */
+  color: #000; /* Cor do texto ao passar o mouse */
+}
+
+/* Estilo quando o select está em foco */
+select:focus {
+  border: 1px solid rgba(255, 255, 255, 0.222);
+  background-color: #3e2424;
+  outline: none; /* Remove a borda de foco padrão */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra ao focar */
+}
+
+/* Estilo para o dropdown aberto */
+select:focus option:checked {
+  background-color: #07101a94; /* Cor de fundo das opções selecionadas ao focar */
+  color: #fff; /* Cor do texto das opções selecionadas ao focar */
+}
+
+
 .tabs, .subtabs {
   display: flex;
   cursor: pointer;
@@ -194,4 +267,112 @@ button {
   border-radius: 5px;
   width: 100%;
   text-align: center;
+}
+
+.navbar {
+  background-color: #4CAF50; /* Defina a cor de fundo desejada */
+  color: white; /* Cor do texto */
+  padding: 10px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+.titleBar {
+  -webkit-app-region: drag;
+  background-color: #40252591; /* Cor de fundo da barra de título */
+  color: #ccc; /* Cor do texto */
+  text-align-last: 10px;
+  text-align: 10px;
+  vertical-align: 10px;
+  height: 30px; /* Altura da barra de título */
+  width: 100%; /* Largura total */
+  position: fixed; /* Fixa a barra de título no topo */
+  top: 0; /* Alinha no topo do body */
+  left: 0; /* Alinha à esquerda do body */
+  z-index: 1000; /* Coloca a barra de título acima de outros elementos */
+  display: flex; /* Usa flexbox para alinhar o conteúdo */
+  justify-content: flex-start; /* Alinha o conteúdo à esquerda */
+  align-items: center; /* Centraliza verticalmente */
+  padding-left: 10px; /* Espaçamento à esquerda */
+}
+
+/* Estilos para a barra de rolagem */
+::-webkit-scrollbar {
+  width: 8px; /* Largura da barra de rolagem */
+  background-color: #40252591; /* Cor de fundo da barra de título */
+}
+
+/* Track (parte de fundo da barra de rolagem) */
+::-webkit-scrollbar-track {
+  background-color: #40252591; /* Cor de fundo da barra de título */
+}
+
+/* Thumb (parte deslizante da barra de rolagem) */
+::-webkit-scrollbar-thumb {
+  background-color: #40252591; /* Cor de fundo da barra de título */
+  border-radius: 4px; /* Borda arredondada do thumb */
+}
+
+/* Hover state do thumb */
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.553)52591; /* Cor de fundo da barra de título */
+}
+
+.dialog-container {
+  border: 1px solid #999;
+  border-radius: 0.5rem;
+  color: #c9c9da;
+  box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
+  padding: 20px;
+  background-color: rgba(64, 37, 37, 0.167); /* Opacidade ajustada para 80% */
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  transition: all ease 0.5s;
+  width: 80vw; /* Largura igual a 90% da largura da tela */
+  max-width: 600px; /* Largura máxima para manter o tamanho controlado */
+  height: 155px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed; /* Fixa o container na tela */
+  top: 70%; /* Ajusta a distância do topo para 10% da altura da tela */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000; /* Garante que o diálogo fique acima de outros elementos */
+}
+
+
+.dialog-message {
+  margin-bottom: 20px;
+  text-align: center;
+  overflow: hidden; /* Esconde o conteúdo que ultrapassa o container */
+  text-overflow: ellipsis; /* Adiciona reticências (...) para indicar que o texto foi cortado */
+}
+
+
+.dialog-buttons button {
+  margin: 5px 5px;
+  color: #3e2424;
+  background-color: #b39090;
+  border: 1px solid #ebe0e0;
+  border-radius: 0.5rem;
+  padding: 10px 20px;
+}
+
+.dialog-buttons button:hover {
+  background-color: #b39090;
+}
+
+#blur-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px); /* Efeito de blur */
+  z-index: 999; /* Z-index menor que o diálogo para que fique atrás dele */
+  display: none; /* Inicialmente oculto */
 }
