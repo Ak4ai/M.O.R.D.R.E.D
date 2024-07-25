@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.example.meuapp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>M.O.R.D.R.E.D</name>
+    <description>Aplicativo de Manuseio de dados de RPG</description>
+    <author email="dev@example.com" href="http://example.com">Dev</author>
+    <content src="index.html" />
+    <plugin name="cordova-plugin-whitelist" spec="1" />
+    <allow-navigation href="*" />
+    <access origin="*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+        <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+        <plugin name="cordova-plugin-file" spec="6.0.2" />
+        <!-- Adicione outros plugins conforme necessário -->
+    </platform>
+    <platform name="android">
+        <allow-intent href="market:*" />
+        <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+        <icon src="res/android-icon-36x36.png" density="ldpi" />
+        <icon src="res/android-icon-48x48.png" density="mdpi" />
+        <icon src="res/android-icon-72x72.png" density="hdpi" />
+        <icon src="res/android-icon-96x96.png" density="xhdpi" />
+        <icon src="res/android-icon-144x144.png" density="xxhdpi" />
+        <icon src="res/android-icon-192x192.png" density="xxxhdpi" />
+        <!-- Adicione outros ícones conforme necessário -->
+    </platform>
+</widget>

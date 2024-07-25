@@ -1,0 +1,50 @@
+{
+  "name": "mordred",
+  "version": "1.0.0",
+  "description": "Aplicativo interativo de RPG",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^31.2.0",
+    "electron-builder": "^24.13.3"
+  },
+  "dependencies": {
+    "custom-electron-titlebar": "^4.2.8"
+  },
+  "build": {
+    "appId": "com.example.mordred",
+    "productName": "M.O.R.D.R.E.D",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "src/assets",
+        "to": "assets",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "win": {
+      "target": "portable",
+      "icon": "icons/icon.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "icons/icon.icns"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "icons/icon.png"
+    }
+  },
+  "author": "Ak4ai",
+  "license": "ISC"
+}

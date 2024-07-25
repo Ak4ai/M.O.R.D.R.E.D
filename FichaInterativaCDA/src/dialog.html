@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Dialog</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden; /* Bloqueia o scrollbar */
+      background-image: url('https://wallpapercave.com/wp/wp11646841.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: inherit;
+      background-size: cover;
+      background-position: inherit;
+      background-repeat: inherit;
+      filter: blur(0.75rem);
+      z-index: -1;
+    }
+
+    .dialog-container {
+      border: 1px solid #999;
+      color: #c9c9da;
+      box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
+      padding: 20px;
+      background-color: rgba(64, 37, 37, 0.57);
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      transition: all ease .2s;
+      width: calc(100% - 40px); /* Reduzir largura em 40px para margens laterais */
+      height: 155px; /* Altura fixa */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .dialog-message {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .dialog-buttons button {
+      margin: 5px 5px;
+      color: #3e2424;
+      background-color: #b39090;
+      border: 1px solid #ebe0e0;
+      border-radius: 0.5rem;
+      padding: 10px 20px;
+    }
+
+    .dialog-buttons button:hover {
+      background-color: #b39090;
+    }
+  </style>
+</head>
+<body>
+  <div class="dialog-container" id="dialog-container">
+    <div class="dialog-message" id="dialog-message"></div>
+    <div class="dialog-buttons">
+      <button onclick="closeDialog()">OK</button>
+    </div>
+  </div>
+  <script>
+    const { ipcRenderer } = require('electron');
+
+    ipcRenderer.on('set-message', (event, message) => {
+      document.getElementById('dialog-message').innerText = message;
+    });
+
+    function closeDialog() {
+      ipcRenderer.send('close-dialog');
+    }
+  </script>
+</body>
+</html>

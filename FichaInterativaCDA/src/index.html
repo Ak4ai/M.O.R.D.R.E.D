@@ -1,0 +1,443 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <link rel="stylesheet" href="style.css">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Character Skills Interface</title>
+      <style>
+          body {
+              font-family: 'Open Sans', sans-serif;
+          }
+          .container {
+              max-width: 600px;
+              margin: 0 auto;
+          }
+      </style>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Meu App Electron</title>
+      <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="titleBar">
+        M.O.R.D.R.E.D
+    </div>
+    <div class="container">
+        <div class="tabs">
+            <div class="tab active" onclick="openTab('info')">Info</div>
+            <div class="tab" onclick="openTab('skills')">Skills</div>
+            <div class="tab" onclick="openTab('actions')">Actions</div>
+            <div class="tab" onclick="openTab('config')">Config</div>
+        </div>
+        
+        <div id="info" class="content active">
+            <h1>Status do Personagem</h1>
+            <div class="status-info">
+                <div class="status-column">
+                  <h2>Status Base</h2>
+                  <div class="status-item">
+                      <div class="status-label">
+                          <label>Vida:</label>
+                          <span id="status-vida">0 / 100</span>
+                      </div>
+                      <div class="status-bar">
+                          <div class="status-bar-fill" id="status-bar-vida" style="width: 0%;"></div>
+                      </div>
+                  </div>
+                  <div class="status-item">
+                      <div class="status-label">
+                          <label>Energia:</label>
+                          <span id="status-energia">0 / 100</span>
+                      </div>
+                      <div class="status-bar">
+                          <div class="status-bar-fill" id="status-bar-energia" style="width: 0%;"></div>
+                      </div>
+                  </div>
+                  <div class="status-item">
+                      <div class="status-label">
+                          <label>Sanidade:</label>
+                          <span id="status-sanidade">0 / 100</span>
+                      </div>
+                      <div class="status-bar">
+                          <div class="status-bar-fill" id="status-bar-sanidade" style="width: 0%;"></div>
+                      </div>
+                  </div>
+                </div>
+                <div class="status-column3">
+                  <h2>Atributos</h2>
+                  <div class="atributos-grid">
+                      <div class="atributo-item">
+                          <label>Vigor:</label>
+                          <span id="status-vigor"></span>
+                      </div>
+                      <div class="atributo-item">
+                          <label>Intelecto:</label>
+                          <span id="status-intelecto"></span>
+                      </div>
+                      <div class="atributo-item">
+                          <label>Presença:</label>
+                          <span id="status-presenca"></span>
+                      </div>
+                      <div class="atributo-item">
+                          <label>Força:</label>
+                          <span id="status-forca"></span>
+                      </div>
+                      <div class="atributo-item">
+                          <label>Agilidade:</label>
+                          <span id="status-agilidade"></span>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="status-pericias">
+              <h2 class="collapsible" onclick="togglePericias()">Perícias</h2>
+                <div class="status-info2 content-collapsed" id="pericias-content">
+                  <div class="status-column2">
+                      <div class="status-item">
+                          <label>Acrobacia:</label>
+                          <span id="status-pericia-acrobacia"></span>
+                      </div>
+                      <div class="status-item">
+                          <label>Adestramento:</label>
+                          <span id="status-pericia-adestramento"></span>
+                      </div>
+                      <div class="status-item">
+                          <label>Artes:</label>
+                          <span id="status-pericia-artes"></span>
+                      </div>
+                      <div class="status-item">
+                          <label>Atualidades:</label>
+                          <span id="status-pericia-atualidades"></span>
+                      </div>
+                      <div class="status-item">
+                          <label>Calamidade:</label>
+                          <span id="status-pericia-calamidade"></span>
+                      </div>
+                      <div class="status-item">
+                          <label>Ciências:</label>
+                          <span id="status-pericia-ciencias"></span>
+                      </div>
+                      <div class="status-item">
+                          <label>Diplomacia:</label>
+                          <span id="status-pericia-diplomacia"></span>
+                      </div>
+                      <div class="status-item">
+                          <label>Fortitude:</label>
+                          <span id="status-pericia-fortitude"></span>
+                      </div>
+                      <div class="status-item">
+                          <label>Furtividade:</label>
+                          <span id="status-pericia-furtividade"></span>
+                      </div>
+                      <div class="status-item">
+                          <label>Iniciativa:</label>
+                          <span id="status-pericia-iniciativa"></span>
+                      </div>
+                      <div class="status-item">
+                          <label>Intuição:</label>
+                          <span id="status-pericia-intuicao"></span>
+                      </div>
+                    </div>
+                    <div class="status-column2">
+                      <div class="status-item">
+                          <label>Investigação:</label>
+                          <span id="status-pericia-investigacao"></span>
+                      </div>
+                      <div class="status-item">
+                        <label>Luta:</label>
+                        <span id="status-pericia-luta"></span>
+                      </div>
+                      <div class="status-item">
+                          <label>Medicina:</label>
+                          <span id="status-pericia-medicina"></span>
+                      </div>
+                      <div class="status-item">
+                          <label>Manifestação:</label>
+                          <span id="status-pericia-manifestacao"></span>
+                      </div>
+                      <div class="status-item">
+                          <label>Percepção:</label>
+                          <span id="status-pericia-percepcao"></span>
+                      </div>
+                      <div class="status-item">
+                          <label>Pilotagem:</label>
+                          <span id="status-pericia-pilotagem"></span>
+                      </div>
+                      <div class="status-item">
+                          <label>Pontaria:</label>
+                          <span id="status-pericia-pontaria"></span>
+                      </div>
+                      <div class="status-item">
+                          <label>Sobrevivência:</label>
+                          <span id="status-pericia-sobrevivencia"></span>
+                      </div>
+                      <div class="status-item">
+                          <label>Técnica:</label>
+                          <span id="status-pericia-tecnica"></span>
+                      </div>
+                      <div class="status-item">
+                          <label>Vontade:</label>
+                          <span id="status-pericia-vontade"></span>
+                      </div>
+                      <div class="status-item">
+                          <label>Sorte:</label>
+                          <span id="status-pericia-sorte"></span>
+                      </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+          
+            <!-- Skills Section with Subtabs -->
+            <div id="skills" class="content">
+                <div class="subtabs">
+                    <div class="subtab active" onclick="openSubtab('skills', 'habilidades')">Habilidades</div>
+                    <div class="subtab" onclick="openSubtab('skills', 'escolha')">Escolha</div>
+                </div>
+                <div id="escolha" class="subcontent">
+                    <h2>Escolha uma habilidade:</h2>
+                    <div id="escolha-habilidades">
+                        <button onclick="escolherHabilidade1('LuciferPassiva')">Lucifer Passiva</button>
+                        <button onclick="escolherHabilidade1('Belzebub')">Belzebub</button>
+                    </div>
+                </div>
+                <div id="habilidades" class="subcontent active">
+                    <h2 id="habilidade-nome"></h2>
+                    <p id="habilidade-descricao"></p>
+                    <div id="botoes-habilidade">
+                        <button id="usar-habilidade" onclick="usarHabilidade()">Usar Habilidade</button>
+                        <button onclick="sair()">Sair</button>
+                    </div>
+                    <div id="dano-total"></div>
+                    <div id="status">
+                        <!-- Aqui será inserido o status dinamicamente -->
+                    </div>
+                    <p id="texto-nenhuma-habilidade" style="display: none;">Escolha uma habilidade na aba Escolha</p>
+                </div>                
+            </div>
+
+
+            <div id="config" class="content">
+                <div id="salvar" class="subcontent active">
+                    <h2>Atualizar Status (EM DESENVOLVIMENTO)</h2>
+                    <form id="status-form">
+                        <label for="vida">Vida:</label>
+                        <input type="number" id="vida" name="vida" min="0" required value="0">
+                        <label for="vidaMax">Vida Max:</label>
+                        <input type="number" id="vidaMax" name="vidaMax" min="0" required value="0">
+                        <br>
+                        <label for="energia">Energia:</label>
+                        <input type="number" id="energia" name="energia" min="0" required value="0">
+                        <label for="energiaMax">Energia Max:</label>
+                        <input type="number" id="energiaMax" name="energiaMax" min="0" required value="0">
+                        <br>
+                        <label for="sanidade">Sanidade:</label>
+                        <input type="number" id="sanidade" name="sanidade" min="0" required value="0">
+                        <label for="sanidadeMax">Sanidade Max:</label>
+                        <input type="number" id="sanidadeMax" name="sanidadeMax" min="0" required value="0">
+                        <br>
+                        <label for="vigor">Vigor:</label>
+                        <input type="number" id="vigor" name="vigor" min="0" required value="0">
+                        <br>
+                        <label for="intelecto">Intelecto:</label>
+                        <input type="number" id="intelecto" name="intelecto" min="0" required value="0">
+                        <br>
+                        <label for="presenca">Presença:</label>
+                        <input type="number" id="presenca" name="presenca" min="0" required value="0">
+                        <br>
+                        <label for="forca">Força:</label>
+                        <input type="number" id="forca" name="forca" min="0" required value="0">
+                        <br>
+                        <label for="agilidade">Agilidade:</label>
+                        <input type="number" id="agilidade" name="agilidade" required value="0">
+                        <br>
+                        <label for="periciaAcrobacia">Perícia Acrobacia:</label>
+                        <input type="number" id="periciaAcrobacia" name="periciaAcrobacia" min="0" required value="0">
+                        <br>
+                        <label for="periciaAdestramento">Perícia Adestramento:</label>
+                        <input type="number" id="periciaAdestramento" name="periciaAdestramento" min="0" required value="0">
+                        <br>
+                        <label for="periciaArtes">Perícia Artes:</label>
+                        <input type="number" id="periciaArtes" name="periciaArtes" min="0" required value="0">
+                        <br>
+                        <label for="periciaAtualidades">Perícia Atualidades:</label>
+                        <input type="number" id="periciaAtualidades" name="periciaAtualidades" min="0" required value="0">
+                        <br>
+                        <label for="periciaCalamidade">Perícia Calamidade:</label>
+                        <input type="number" id="periciaCalamidade" name="periciaCalamidade" min="0" required value="0">
+                        <br>
+                        <label for="periciaCiencias">Perícia Ciências:</label>
+                        <input type="number" id="periciaCiencias" name="periciaCiencias" min="0" required value="0">
+                        <br>
+                        <label for="periciaDiplomacia">Perícia Diplomacia:</label>
+                        <input type="number" id="periciaDiplomacia" name="periciaDiplomacia" min="0" required value="0">
+                        <br>
+                        <label for="periciaFortitude">Perícia Fortitude:</label>
+                        <input type="number" id="periciaFortitude" name="periciaFortitude" min="0" required value="0">
+                        <br>
+                        <label for="periciaFurtividade">Perícia Furtividade:</label>
+                        <input type="number" id="periciaFurtividade" name="periciaFurtividade" min="0" required value="0">
+                        <br>
+                        <label for="periciaIniciativa">Perícia Iniciativa:</label>
+                        <input type="number" id="periciaIniciativa" name="periciaIniciativa" min="0" required value="0">
+                        <br>
+                        <label for="periciaIntuicao">Perícia Intuição:</label>
+                        <input type="number" id="periciaIntuicao" name="periciaIntuicao" min="0" required value="0">
+                        <br>
+                        <label for="periciaInvestigacao">Perícia Investigação:</label>
+                        <input type="number" id="periciaInvestigacao" name="periciaInvestigacao" min="0" required value="0">
+                        <br>
+                        <label for="periciaLuta">Perícia Luta:</label>
+                        <input type="number" id="periciaLuta" name="periciaLuta" min="0" required value="0">
+                        <br>
+                        <label for="periciaMedicina">Perícia Medicina:</label>
+                        <input type="number" id="periciaMedicina" name="periciaMedicina" min="0" required value="0">
+                        <br>
+                        <label for="periciaManifestacao">Perícia Manifestação:</label>
+                        <input type="number" id="periciaManifestacao" name="periciaManifestacao" min="0" required value="0">
+                        <br>
+                        <label for="periciaPercepcao">Perícia Percepção:</label>
+                        <input type="number" id="periciaPercepcao" name="periciaPercepcao" min="0" required value="0">
+                        <br>
+                        <label for="periciaPilotagem">Perícia Pilotagem:</label>
+                        <input type="number" id="periciaPilotagem" name="periciaPilotagem" min="0" required value="0">
+                        <br>
+                        <label for="periciaPontaria">Perícia Pontaria:</label>
+                        <input type="number" id="periciaPontaria" name="periciaPontaria" min="0" required value="0">
+                        <br>
+                        <label for="periciaSobrevivencia">Perícia Sobrevivência:</label>
+                        <input type="number" id="periciaSobrevivencia" name="periciaSobrevivencia" min="0" required value="0">
+                        <br>
+                        <label for="periciaTecnica">Perícia Técnica:</label>
+                        <input type="number" id="periciaTecnica" name="periciaTecnica" min="0" required value="0">
+                        <br>
+                        <label for="periciaVontade">Perícia Vontade:</label>
+                        <input type="number" id="periciaVontade" name="periciaVontade" min="0" required value="0">
+                        <br>
+                        <label for="periciaSorte">Perícia Sorte:</label>
+                        <input type="number" id="periciaSorte" name="periciaSorte" min="0" required value="0">
+                        <br>
+                        <!-- Adicione mais campos conforme necessário -->
+                        <button type="button" onclick="salvarStatus()">Salvar</button>
+                    </form>
+                    <div>
+                        <h2>Carregar Status (EM DESENVOLVIMENTO)</h2>
+                        <!-- Exemplo de como carregar dados -->
+                        <button type="button" onclick="carregarStatus()">Carregar</button>
+                
+                    </div>
+                </div>
+            </div>
+            
+          
+          <!-- Actions Section with Subtabs -->
+          <div id="actions" class="content">
+              <div class="subtabs">
+                  <div class="subtab active" onclick="openSubtab('actions', 'acoes')">Ações</div>
+                  <div class="subtab" onclick="openSubtab('actions', 'ajustes')">Ajustes</div>
+                  <div class="subtab" onclick="openSubtab('actions', 'testes')">Testes</div>
+              </div>
+              <div id="acoes" class="subcontent active">
+                <h2>Atacar</h2>
+                <label for="vantagens-ataque">Número de Vantagens:</label>
+                <input type="number" id="vantagens-ataque" value="0">
+                <br>
+                <label for="modificador-ataque">Modificador:</label>
+                <input type="number" id="modificador-ataque" value="0">
+                <br>
+                <button onclick="executarAtaque()">Executar Ataque</button>
+
+                <h2>Defender</h2>
+                <label for="vantagens-defesa">Número de Vantagens:</label>
+                <input type="number" id="vantagens-defesa" value="0">
+                <br>
+                <label for="modificador-defesa">Modificador:</label>
+                <input type="number" id="modificador-defesa" value="0">
+                <br>
+                <button onclick="executarDefesa()">Executar Defesa</button>
+                
+                <h2>Esquivar</h2>
+                <label for="vantagens-esquiva">Número de Vantagens:</label>
+                <input type="number" id="vantagens-esquiva" value="0">
+                <br>
+                <label for="modificador-esquiva">Modificador:</label>
+                <input type="number" id="modificador-esquiva" value="0">
+                <br>
+                <button onclick="executarEsquiva()">Executar Esquiva</button>
+                
+                <h2>Contra-Atacar</h2>
+                <label for="vantagens-contraataque">Número de Vantagens:</label>
+                <input type="number" id="vantagens-contraataque" value="0">
+                <br>
+                <label for="modificador-contraataque">Modificador:</label>
+                <input type="number" id="modificador-contraataque" value="0">
+                <br>
+                <button onclick="executarContraAtaque()">Executar Contra-Ataque</button>
+            </div>
+              <div id="ajustes" class="subcontent">
+                  <h2>Ajuste Energia:</h2>
+                  <input type="text" id="ajuste-energia" />
+                  <button onclick="ajustarEnergia(1)">Adicionar Energia</button>
+                  <button onclick="ajustarEnergia(-1)">Reduzir Energia</button>
+                  <h2>Ajuste Vida:</h2>
+                  <input type="text" id="ajuste-vida" />
+                  <button onclick="ajustarVida(1)">Adicionar Vida</button>
+                  <button onclick="ajustarVida(-1)">Reduzir Vida</button>
+                  <h2>Ajuste Sanidade:</h2>
+                  <input type="text" id="ajuste-sanidade" />
+                  <button onclick="ajustarSanidade(1)">Adicionar Sanidade</button>
+                  <button onclick="ajustarSanidade(-1)">Reduzir Sanidade</button>
+                  <!-- Outros elementos da interface, se houver -->
+                  <h2>Sair:</h2>
+                  <button onclick="sairAjustes()">Sair dos Ajustes</button>
+              </div>
+              <div id="testes" class="subcontent">
+                <label for="atributo">Atributo:</label>
+                <select id="atributoSelect">
+                    <option value="força">Força</option>
+                    <option value="agilidade">Agilidade</option>
+                    <option value="intelecto">Intelecto</option>
+                    <option value="presenca">Presenca</option>
+                    <option value="vigor">Vigor</option>
+                    <!-- Adicione mais opções conforme necessário -->
+                </select><br><br>
+            
+                <label for="pericia">Perícia:</label>
+                <select id="periciaSelect">
+                  <option value="acrobacia">Acrobacia</option>
+                  <option value="adestramento">Adestramento</option>
+                  <option value="artes">Artes</option>
+                  <option value="atualidades">Atualidades</option>
+                  <option value="calamidade">Calamidade</option>
+                  <option value="ciencias">Ciências</option>
+                  <option value="diplomacia">Diplomacia</option>
+                  <option value="fortitude">Fortitude</option>
+                  <option value="furtividade">Furtividade</option>
+                  <option value="iniciativa">Iniciativa</option>
+                  <option value="intuicao">Intuição</option>
+                  <option value="investigacao">Investigação</option>
+                  <option value="luta">Luta</option>
+                  <option value="medicina">Medicina</option>
+                  <option value="manifestacao">Manifestação</option>
+                  <option value="percepcao">Percepção</option>
+                  <option value="pilotagem">Pilotagem</option>
+                  <option value="pontaria">Pontaria</option>
+                  <option value="sobrevivencia">Sobrevivência</option>
+                  <option value="tecnica">Técnica</option>
+                  <option value="vontade">Vontade</option>
+                  <option value="sorte">Sorte</option>
+              </select><br><br>
+            
+                <label for="vantagens">Vantagens:</label>
+                <input type="number" id="vantagensInput" value="0"><br><br>
+            
+                <label for="modificador">Modificador:</label>
+                <input type="number" id="modificadorInput" value="0"><br><br>
+            
+                <button onclick="executarAcao()">Executar Ação</button>
+            </div>
+      </div>
+      <script src="script.js"></script>
+  </body>
+  </html>
